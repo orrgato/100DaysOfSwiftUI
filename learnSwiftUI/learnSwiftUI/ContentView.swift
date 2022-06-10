@@ -25,8 +25,6 @@ struct ContentView: View {
         
         VStack {
             spells
-            CapsuleText(text: "Send Nodes")
-            CapsuleText(text: "Show Terminals")
         }
 
         
