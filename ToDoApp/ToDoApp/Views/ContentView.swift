@@ -8,13 +8,15 @@
 import SwiftUI
 
 struct ContentView: View {
-    
+    @StateObject var realmManager = RealmManager()
     @State private var showAddTaskView: Bool = false
+
     
     var body: some View {
         ZStack(alignment: .bottomTrailing) {
             
             TasksView()
+                .environmentObject(realmManager)
             
             SmallAdButton()
                 .padding()
@@ -25,6 +27,7 @@ struct ContentView: View {
         }
         .sheet(isPresented: $showAddTaskView) {
             AddTaskView()
+                .environmentObject(realmManager)
         }
         .frame(width: .infinity, height: .infinity, alignment: .bottom)
         .background(Color(red: 0.95, green: 0.823, blue: 0.636))
